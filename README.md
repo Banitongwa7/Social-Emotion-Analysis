@@ -1,2 +1,1 @@
-# Social-Emotion-Analysis
-Social Emotion Analysis | SEA
+# Social Emotion Analysis | SEA
