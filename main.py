@@ -1,1 +1,3 @@
-print("Hello World ! This is main.py")
+import nltk
+
+nltk.download('twitter_samples')
