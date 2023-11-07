@@ -9,12 +9,4 @@ df = pd.read_csv('data/emotion_dataset.csv')
 df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles)
 df['Clean_Text'] = df['Text'].apply(nfx.remove_stopwords)
 
-
-x = df['Clean_Text']
-y = df['Emotion']
-
-
-
-
-# display graph
-#plt.show()
+print(df)
