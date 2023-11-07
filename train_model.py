@@ -9,6 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+import joblib
 
 
 # step 1
@@ -46,7 +47,9 @@ pipe_rf.score(x_test, y_test)
 
 # step 5
 # saving model
-
+pipeline_file = open('models/emotion_classifier.pkl', 'wb')
+joblib.dump(pipe_lr, pipeline_file)
+pipeline_file.close()
 
 # display graph
 #plt.show()
