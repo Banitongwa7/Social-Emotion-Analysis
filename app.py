@@ -27,7 +27,23 @@ def get_prediction_proba(docx):
     return results
 
 def main():
-    st.title("SEA App")
+    # center title
+    st.markdown("""
+    <style>
+    .title {
+        text-align: center;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    st.markdown(
+        """
+        <div class="title">
+            <h1>Social Emotion Analysis - SEA</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     st.subheader("Emotion Detector In Text")
 
     with st.form(key='emotion_form'):
