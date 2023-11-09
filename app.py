@@ -16,6 +16,15 @@ emotions_emoji_dict = {
     "sad": "😔",
     "surprise": "😮",
     "sadness": "😔",
+    "shame": "😳",
+    "happiness": "😂",
+    "boredom": "😐",
+    "confusion": "😕",
+    "worry": "😔",
+    "fun": "🤩",
+    "hate": "😡",
+    "relief": "😊",
+    "love": "😍",
 }
 
 def predict_emotions(docx):

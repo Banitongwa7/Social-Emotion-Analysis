@@ -21,8 +21,8 @@ df = pd.read_csv('data/emotion_dataset.csv')
 #sns.countplot(x='Emotion', data=df)
 
 # step 2
-df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles)
-df['Clean_Text'] = df['Text'].apply(nfx.remove_stopwords)
+df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles) # remove user handles
+df['Clean_Text'] = df['Text'].apply(nfx.remove_stopwords) # remove stopwords
 
 
 # step 3
