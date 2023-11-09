@@ -52,7 +52,7 @@ pipe_rf.score(x_test, y_test)
 
 # step 5
 # saving model
-pipeline_file = open('models/emotion_classifier.pkl', 'wb')
+pipeline_file = open('models/emotion_classifier_full.pkl', 'wb')
 joblib.dump(pipe_lr, pipeline_file)
 pipeline_file.close()
 
