@@ -38,7 +38,7 @@ y = df['Emotion']
 
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
 
-# step 4 
+# step 4
 # training model
 pipe_lr = Pipeline(steps=[('cv', CountVectorizer()), ('lr', LogisticRegression())])
 pipe_lr.fit(x_train, y_train)
