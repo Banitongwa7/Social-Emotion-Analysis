@@ -4,7 +4,7 @@ import numpy as np
 import altair as alt
 import joblib
 
-pipe_lr = joblib.load(open('models/emotion_classifier.pkl', 'rb'))
+pipe_rf = joblib.load(open('models/emotion_classifier_rf.pkl', 'rb'))
 
 emotions_emoji_dict = {
     "anger": "😠",
@@ -28,11 +28,11 @@ emotions_emoji_dict = {
 }
 
 def predict_emotions(docx):
-    results = pipe_lr.predict([docx])
+    results = pipe_rf.predict([docx])
     return results[0]
 
 def get_prediction_proba(docx):
-    results = pipe_lr.predict_proba([docx])
+    results = pipe_rf.predict_proba([docx])
     return results
 
 def main():
@@ -56,7 +56,7 @@ def main():
     st.subheader("Emotion Detector In Text")
 
     with st.form(key='emotion_form'):
-        raw_text = st.text_area("Type Here")
+        raw_text = st.text_area("Type your text here")
         submit_button = st.form_submit_button(label='Submit')
 
     if submit_button:
@@ -76,11 +76,10 @@ def main():
         
         with col2:
             st.success("Prediction Probability")
-            proba_df = pd.DataFrame(probability, columns=pipe_lr.classes_)
+            proba_df = pd.DataFrame(probability, columns=pipe_rf.classes_)
             #st.write(proba_df.T)
             proba_df_clean = proba_df.T.reset_index()
             proba_df_clean.columns = ["emotions", "probability"]
-
             fig = alt.Chart(proba_df_clean).mark_bar().encode(x='emotions', y='probability', color='emotions')
             st.altair_chart(fig, use_container_width=True)
         

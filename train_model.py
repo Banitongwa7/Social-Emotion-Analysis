@@ -14,12 +14,12 @@ import joblib
 
 # step 1
 
-df_emotion_1 = pd.read_csv('data/emotion_dataset.csv')
-df_emotion_2 = pd.read_csv('data/emotion_dataset2.csv')
-df_emotion_3 = pd.read_csv('data/emotion_dataset3.csv')
-df_emotion_4 = pd.read_json('data/emotion_dataset.jsonl', lines=True)
+df = pd.read_csv('data/emotion_dataset.csv')
+#df_emotion_2 = pd.read_csv('data/emotion_dataset2.csv')
+#df_emotion_3 = pd.read_csv('data/emotion_dataset3.csv')
+#df_emotion_4 = pd.read_json('data/emotion_dataset.jsonl', lines=True)
 
-df = pd.concat([df_emotion_1, df_emotion_2, df_emotion_3, df_emotion_4], ignore_index=True)
+#df = pd.concat([df_emotion_1, df_emotion_2], ignore_index=True)
 
 #print(df.head())
 #print(df['Emotion'].value_counts())
@@ -28,6 +28,8 @@ df = pd.concat([df_emotion_1, df_emotion_2, df_emotion_3, df_emotion_4], ignore_
 # step 2
 df['Clean_Text'] = df['Text'].apply(nfx.remove_userhandles) # remove user handles
 df['Clean_Text'] = df['Text'].apply(nfx.remove_stopwords) # remove stopwords
+
+# ajout d'autres étapes de pre-traitement
 
 
 # step 3
@@ -52,8 +54,8 @@ pipe_rf.score(x_test, y_test)
 
 # step 5
 # saving model
-pipeline_file = open('models/emotion_classifier_full.pkl', 'wb')
-joblib.dump(pipe_lr, pipeline_file)
+pipeline_file = open('models/emotion_classifier_rf.pkl', 'wb')
+joblib.dump(pipe_rf, pipeline_file)
 pipeline_file.close()
 
 # display graph
