@@ -14,7 +14,12 @@ import joblib
 
 # step 1
 
-df = pd.read_csv('data/emotion_dataset.csv')
+df_emotion_1 = pd.read_csv('data/emotion_dataset.csv')
+df_emotion_2 = pd.read_csv('data/emotion_dataset2.csv')
+df_emotion_3 = pd.read_csv('data/emotion_dataset3.csv')
+df_emotion_4 = pd.read_json('data/emotion_dataset.jsonl', lines=True)
+
+df = pd.concat([df_emotion_1, df_emotion_2, df_emotion_3, df_emotion_4], ignore_index=True)
 
 #print(df.head())
 #print(df['Emotion'].value_counts())
